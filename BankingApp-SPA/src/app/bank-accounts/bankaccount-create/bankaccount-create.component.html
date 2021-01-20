@@ -1,0 +1,38 @@
+<div class="main-container">
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup] = "createForm" (ngSubmit)="create()">
+
+                 <mat-form-field class = "form-el">
+                    <mat-label>Account Type</mat-label>
+                    <mat-select formControlName="accountType">
+                        <div *ngFor="let val of accountTypes">
+                            <mat-option *ngIf='val.accountType !== "Loans"' [value] = 'val.id'>
+                                {{ val.accountType }}
+                            </mat-option>
+                        </div>
+                    </mat-select>
+                    <mat-error *ngIf='formValue.accountType.invalid && formValue.accountType.touched'>
+                        Please provide a valid type.
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class = "form-el">
+                    <input matInput placeholder="Initial Deposit" formControlName="initialDeposit">
+                    <mat-error *ngIf="formValue.initialDeposit.invalid && formValue.initialDeposit.touched">
+                        Please provide a valid amount.
+                    </mat-error>
+                </mat-form-field>
+
+                <button class = "form-field" type="submit" mat-raised-button color="primary">
+                    Create
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+

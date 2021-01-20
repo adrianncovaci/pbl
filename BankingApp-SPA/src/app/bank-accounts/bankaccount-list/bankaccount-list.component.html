@@ -1,0 +1,36 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+<h2 class="mat-h2">Accounts</h2>
+<mat-accordion>
+    <div *ngFor="let element of accountMap | keyvalue; let i = index" >
+        <mat-expansion-panel [expanded] = "i == 0">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ element.key }}
+                </mat-panel-title>
+                <mat-panel-description class="right-aligned-header">
+                    {{ element.value.length }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="content">
+                <mat-card *ngFor="let account of element.value" class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar><mat-icon>local_atm</mat-icon></div>
+                        <mat-card-title>Balance: {{ account.balance }} </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Account Number: {{ account.accountNumber }}</p>
+                        <p>Interest Rate: {{ account.interestRate }}</p>
+                        <p>Maintenance Fee: {{ account.maintenanceFee }}</p>
+                        <p>Date Created: {{ account.dateCreated | date}}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button routerLink="{{ account.id }}" mat-button>Manage</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>
+
+<button routerLink="openaccount" mat-button>Open Up a Bank Account</button>
+<button routerLink="applyloan" mat-button>Apply for a loan</button>

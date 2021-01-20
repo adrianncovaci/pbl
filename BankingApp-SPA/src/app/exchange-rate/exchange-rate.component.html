@@ -1,0 +1,24 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+<h2 class="mat-h2">Base: Euro</h2>
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<mat-table #table [dataSource]="currencies">
+  
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
+    <mat-cell *matCellDef="let el"> {{ el.position }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="currency">
+    <mat-header-cell *matHeaderCellDef> Currency </mat-header-cell>
+    <mat-cell *matCellDef="let el"> {{el.currency}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="value">
+    <mat-header-cell *matHeaderCellDef> Value </mat-header-cell>
+    <mat-cell *matCellDef="let el"> {{el.value}} </mat-cell>
+  </ng-container>
+  
+<mat-header-row *matHeaderRowDef="collumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: collumns;"></mat-row>
+
+</mat-table>

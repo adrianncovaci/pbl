@@ -1,0 +1,275 @@
+<mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+  <mat-tab label="Deposit">
+    <div class="container">
+      <mat-card class="current-account">
+        <mat-card-header>
+          <mat-card-title>Current Account: </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Account Number: {{ bankAccount.accountNumber }}</p>
+          <p>Balance: {{ bankAccount.balance }}</p>
+          <p>Date Created: {{ bankAccount.dateCreated | date }}</p>
+          <p>Interest Rate: {{ bankAccount.interestRate }}</p>
+          <p>Maintenance Fee: {{ bankAccount.maintenanceFee }}</p>
+          <p *ngIf="bankAccount.monthlyPayment">
+            Monthly Payment: {{ bankAccount.monthlyPayment | number: ".2-2" }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+      <form style [formGroup]="depositForm" (ngSubmit)="deposit()">
+        <mat-form-field>
+          <input matInput placeholder="Amount" formControlName="amount" />
+          <mat-error
+            *ngIf="
+              depositFormValue.amount.invalid && depositFormValue.amount.touched
+            "
+          >
+            Please provide a valid amount.
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          class="form-field"
+          type="submit"
+          mat-raised-button
+          color="primary"
+        >
+          Deposit
+        </button>
+      </form>
+    </div>
+  </mat-tab>
+  <mat-tab label="Withdraw">
+    <div class="container">
+      <mat-card class="current-account">
+        <mat-card-header>
+          <mat-card-title>Current Account: </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Account Number: {{ bankAccount.accountNumber }}</p>
+          <p>Balance: {{ bankAccount.balance }}</p>
+          <p>Date Created: {{ bankAccount.dateCreated | date }}</p>
+          <p>Interest Rate: {{ bankAccount.interestRate }}</p>
+          <p>Maintenance Fee: {{ bankAccount.maintenanceFee }}</p>
+          <p *ngIf="bankAccount.monthlyPayment">
+            Monthly Payment: {{ bankAccount.monthlyPayment | number: ".2-2" }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+      <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+        <mat-form-field>
+          <input matInput placeholder="Amount" formControlName="amount" />
+          <mat-error
+            *ngIf="
+              withdrawFormValue.amount.invalid &&
+              withdrawFormValue.amount.touched
+            "
+          >
+            Please provide a valid amount.
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          class="form-field"
+          type="submit"
+          mat-raised-button
+          color="primary"
+        >
+          Withdraw
+        </button>
+      </form>
+    </div>
+  </mat-tab>
+  <mat-tab label="Transfer">
+    <div class="container">
+      <mat-card class="current-account">
+        <mat-card-header>
+          <mat-card-title>Current Account: </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Account Number: {{ bankAccount.accountNumber }}</p>
+          <p>Balance: {{ bankAccount.balance }}</p>
+          <p>Date Created: {{ bankAccount.dateCreated | date }}</p>
+          <p>Interest Rate: {{ bankAccount.interestRate }}</p>
+          <p>Maintenance Fee: {{ bankAccount.maintenanceFee }}</p>
+          <p *ngIf="bankAccount.monthlyPayment">
+            Monthly Payment: {{ bankAccount.monthlyPayment | number: ".2-2" }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+      <form [formGroup]="transferForm" (ngSubmit)="transfer()">
+        <mat-form-field>
+          <input matInput placeholder="Amount" formControlName="amount" />
+          <mat-error
+            *ngIf="
+              transferFormValue.amount.invalid &&
+              transferFormValue.amount.touched
+            "
+          >
+            Please provide a valid amount.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Receiver" formControlName="receiver" />
+          <mat-error
+            *ngIf="
+              transferFormValue.receiver.invalid &&
+              transferFormValue.receivertouched
+            "
+          >
+            Please provide a valid amount.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Message"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+            formControlName="message"
+          ></textarea>
+          <mat-error *ngIf="transferFormValue.message.invalid">
+            256 characters maximum.
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          class="form-field"
+          type="submit"
+          mat-raised-button
+          color="primary"
+        >
+          Transfer
+        </button>
+      </form>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Transactions">
+    <div class="transfer_container">
+      <mat-sidenav-container class="sidenav">
+        <mat-sidenav-content>
+          <h3>Filter:</h3>
+          <h4>Transaction Type:</h4>
+          <mat-list>
+            <mat-list-item>
+              <mat-checkbox
+                [(ngModel)]="filterProperties.deposit"
+                (change)="applyFilters()"
+              >
+                Deposit Transaction
+              </mat-checkbox>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-checkbox
+                [(ngModel)]="filterProperties.withdrawal"
+                (change)="applyFilters()"
+                >Withdrawal Transactions</mat-checkbox
+              >
+            </mat-list-item>
+            <mat-list-item>
+              <mat-checkbox
+                [(ngModel)]="filterProperties.transfer"
+                (change)="applyFilters()"
+                >Transfer Transactions</mat-checkbox
+              >
+            </mat-list-item>
+          </mat-list>
+          <h4>Date:</h4>
+          <form [formGroup]="dateForm">
+            <mat-form-field>
+              <input
+                placeholder="Start Date"
+                matInput
+                [matDatepicker]="startDate"
+                formControlName="startDate"
+                (ngModelChange)="applyFilters()"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="startDate"
+              ></mat-datepicker-toggle>
+              <mat-datepicker
+                (ngModelChange)="applyFilters()"
+                #startDate
+              ></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="End Date"
+                [matDatepicker]="endDate"
+                formControlName="endDate"
+                (ngModelChange)="applyFilters()"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="endDate"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+          </form>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      <div class="table-container">
+        <mat-table
+          #table
+          [dataSource]="transactions?.data"
+          matSort
+          matSortActive="dateIssued"
+          matSortDirection="desc"
+        >
+          <ng-container matColumnDef="dateIssued">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Date Issued
+            </mat-header-cell>
+            <mat-cell *matCellDef="let el">
+              {{ el.dateIssued | date }}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Amount
+            </mat-header-cell>
+            <mat-cell *matCellDef="let el"> {{ el.amount }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="transactionType">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Transaction Type
+            </mat-header-cell>
+            <mat-cell *matCellDef="let el"> {{ el.transactionType }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="message">
+            <mat-header-cell *matHeaderCellDef> Message </mat-header-cell>
+            <mat-cell *matCellDef="let el"> {{ el.message }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="receiver">
+            <mat-header-cell *matHeaderCellDef>Receiver</mat-header-cell>
+            <mat-cell *matCellDef="let el">
+              <ng-container *ngIf="el.receiverAccountName">
+                {{ el.receiverAccountName }}
+              </ng-container>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+
+        <mat-paginator
+          [length]="transactions?.total"
+          [pageSizeOptions]="[10, 15]"
+          pageSize="10"
+        ></mat-paginator>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,15 @@
+<h2 class="mat-h2" style="text-align: center;">Accounts</h2>
+<div style="width: 50%; margin: 0 auto;" *ngFor="let loan of loanRequests">
+    <mat-card style="margin: 2em;" class="example-card">
+        <mat-card-header>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list-item>
+                <div mat-line>Date Issued: {{ loan.dateIssued | date }}</div>
+                <div mat-line>Status: {{ loan.status }}</div>
+                <div mat-line>Comments: {{ loan.comments }}</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+    </mat-card-content>
+    </mat-card>
+</div>

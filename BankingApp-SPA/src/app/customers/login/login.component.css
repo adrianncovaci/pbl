@@ -1,0 +1,20 @@
+
+mat-form-field {
+    display: block;
+}
+
+.main-container {
+    height:75vh;
+    display: flex;
+    /* width:40%; */
+    justify-content: center;
+    align-items: center;
+}
+
+.sbmt-btn {
+    display: block;
+    margin: 0 auto;
+}
+
+.form-el {
+}

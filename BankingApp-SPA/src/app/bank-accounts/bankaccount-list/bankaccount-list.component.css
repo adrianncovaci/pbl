@@ -1,0 +1,19 @@
+mat-panel-description {
+  flex: 0 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-expansion-panel{
+  max-height: 350px;
+  overflow: auto;
+}
+
+mat-card {
+  margin: 1em;
+}

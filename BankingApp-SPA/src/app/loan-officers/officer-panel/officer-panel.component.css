@@ -1,0 +1,10 @@
+mat-table {
+    /* width: 100%; */
+    margin: 0 auto;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+h2 {
+    text-align: center;
+}

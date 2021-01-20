@@ -1,0 +1,16 @@
+<mat-grid-list cols="2" rowHeight="3:1.33">
+  <mat-grid-tile>
+    <app-exchange-rate style="width: 75%;"></app-exchange-rate>
+  </mat-grid-tile>
+  <mat-grid-tile rowspan="2">
+    <app-bankaccount-list
+      style="width: 75%; height: 90%;"
+    ></app-bankaccount-list>
+  </mat-grid-tile>
+  <mat-grid-tile
+    ><app-credit-score-history
+      [id]="currentUser.id"
+      style="width: 100%; height: 100%;"
+    ></app-credit-score-history
+  ></mat-grid-tile>
+</mat-grid-list>

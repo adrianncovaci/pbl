@@ -1,0 +1,11 @@
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/bin/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.deps.json
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/bin/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.dll
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/bin/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.pdb
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/bin/Debug/netcoreapp3.1/BankingApp.Domain.dll
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/bin/Debug/netcoreapp3.1/BankingApp.Domain.pdb
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/obj/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.csprojAssemblyReference.cache
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/obj/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.AssemblyInfoInputs.cache
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/obj/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.AssemblyInfo.cs
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/obj/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.csproj.CopyComplete
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/obj/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.dll
+/home/adrian/BankingApp/BankingApp.Domain.EFMapping/obj/Debug/netcoreapp3.1/BankingApp.Domain.EFMapping.pdb

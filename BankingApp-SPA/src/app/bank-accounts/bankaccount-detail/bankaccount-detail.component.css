@@ -1,0 +1,47 @@
+mat-form-field {
+  display: block;
+  margin-top: 2em;
+}
+
+form {
+  width: 30%;
+  margin: 2em;
+  /* margin-top: 0; */
+}
+.sbmt-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+mat-card {
+  margin: 2em;
+  width: 30%;
+  float: left;
+}
+
+.container {
+  height: 400px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.transfer-container {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.table-container {
+  width: 50%;
+  margin-left: 10em;
+}
+
+.sidenav {
+  width: 30%;
+  float: right;
+  margin: 0 auto;
+  margin-right: 10em;
+  margin-top: 3em;
+}

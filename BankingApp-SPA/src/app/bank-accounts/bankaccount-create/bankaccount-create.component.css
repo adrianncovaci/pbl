@@ -1,0 +1,26 @@
+
+mat-form-field {
+    display: block;
+}
+
+.example-card {
+    width: 40%;
+}
+
+.main-container {
+    height:75vh;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sbmt-btn {
+    display: block;
+    margin: 0 auto;
+}
+
+.form-el {
+    padding: 1em;
+}
+

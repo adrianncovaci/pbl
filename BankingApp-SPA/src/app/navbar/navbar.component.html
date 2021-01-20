@@ -1,0 +1,61 @@
+<mat-toolbar color="primary" mat-elevation-z8>
+  <a *appHasRoles="['Customer']" routerLink="/">
+    <mat-icon>account_balance</mat-icon>
+  </a>
+  <a *appHasRoles="['Admin', 'LoanOfficer']" routerLink="officer">
+    <mat-icon>account_balance</mat-icon>
+  </a>
+
+  <div class="spacer"></div>
+
+  <a
+    *ngIf="!isLoggedIn()"
+    routerLink="/login"
+    routerLinkActive="active"
+    mat-button
+    color="link"
+    >Sign Up</a
+  >
+  <div *ngIf="isLoggedIn()">
+    <a mat-button *appHasRoles="['Admin', 'LoanOfficer']" routerLink="officer"
+      >Loan Requests</a
+    >
+    <button mat-button *ngIf="currentUser && currentUser.firstName !== null"[matMenuTriggerFor]="menu">
+      {{ currentUser.firstName }} {{ currentUser.lastName }}
+    </button>
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        *appHasRoles="['Admin', 'LoanOfficer']"
+        routerLink="officer"
+      >
+        <mat-icon>home</mat-icon>
+        Home
+      </button>
+      <button mat-menu-item *appHasRoles="['Customer']" routerLink="">
+        <mat-icon>home</mat-icon>
+        Home
+      </button>
+      <button
+        *appHasRoles="['Customer']"
+        mat-menu-item
+        routerLink="/loanrequests"
+      >
+        <mat-icon>account_balance_wallet</mat-icon>
+        Loan Requests
+      </button>
+      <button
+        *appHasRoles="['Customer']"
+        mat-menu-item
+        routerLink="profile/{{ currentUser.id }}"
+      >
+        <mat-icon>account_box</mat-icon>
+        Profile Page
+      </button>
+      <button mat-menu-item (click)="logOut()">
+        <mat-icon>exit_to_app</mat-icon>
+        Log Out
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

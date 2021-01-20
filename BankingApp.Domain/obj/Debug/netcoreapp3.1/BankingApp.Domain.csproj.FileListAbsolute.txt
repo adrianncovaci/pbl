@@ -1,0 +1,8 @@
+/home/adrian/BankingApp/BankingApp.Domain/bin/Debug/netcoreapp3.1/BankingApp.Domain.deps.json
+/home/adrian/BankingApp/BankingApp.Domain/bin/Debug/netcoreapp3.1/BankingApp.Domain.dll
+/home/adrian/BankingApp/BankingApp.Domain/bin/Debug/netcoreapp3.1/BankingApp.Domain.pdb
+/home/adrian/BankingApp/BankingApp.Domain/obj/Debug/netcoreapp3.1/BankingApp.Domain.csprojAssemblyReference.cache
+/home/adrian/BankingApp/BankingApp.Domain/obj/Debug/netcoreapp3.1/BankingApp.Domain.AssemblyInfoInputs.cache
+/home/adrian/BankingApp/BankingApp.Domain/obj/Debug/netcoreapp3.1/BankingApp.Domain.AssemblyInfo.cs
+/home/adrian/BankingApp/BankingApp.Domain/obj/Debug/netcoreapp3.1/BankingApp.Domain.dll
+/home/adrian/BankingApp/BankingApp.Domain/obj/Debug/netcoreapp3.1/BankingApp.Domain.pdb

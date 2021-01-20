@@ -1,0 +1,85 @@
+<mat-grid-list cols="2" rowHeight="3:1.33">
+  <mat-grid-tile>
+    <div style="width: 80%;">
+      <mat-card style="width: 100%;" class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title
+            >{{ user.firstName }} {{ user.lastName }}</mat-card-title
+          >
+        </mat-card-header>
+        <mat-card-content>
+          <p>CNP: {{ user.cnp }}</p>
+          <p>Credit Score: {{ user.creditScore }}</p>
+          <p>Email: {{ user.email }}</p>
+          <p>Date Joined: {{ user.dateJoined | date }}</p>
+          <p>City: {{ user.city }}</p>
+          <p>Address: {{ user.address }}</p>
+          <p>Zip Code: {{ user.zipCode }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile *ngIf="user.userId == this.authService.decodedToken.Id">
+    <mat-card>
+      <mat-card-header>
+        Change Password
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
+          <mat-label>Current Password</mat-label>
+          <mat-form-field class="form-el">
+            <input
+              matInput
+              required
+              formControlName="oldPassword"
+              type="password"
+            />
+            <mat-error *ngIf="formValues.oldPassword.invalid">
+              Current password is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-label>Current Password</mat-label>
+          <mat-form-field class="form-el">
+            <input
+              matInput
+              required
+              formControlName="newPassword"
+              type="password"
+            />
+            <mat-error *ngIf="formValues.newPassword.invalid">
+              New password is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <mat-form-field class="form-el">
+            <input
+              matInput
+              required
+              formControlName="confirmPassword"
+              type="password"
+            />
+            <mat-error *ngIf="formValues.confirmPassword.invalid">
+              Password confirmation is required.
+            </mat-error>
+          </mat-form-field>
+          <button
+            class="form-field"
+            type="submit"
+            mat-raised-button
+            color="primary"
+          >
+            Change Password
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile
+    ><app-credit-score-history
+      [id]="user.id"
+      style="width: 80%; height: 85%;"
+    ></app-credit-score-history
+  ></mat-grid-tile>
+</mat-grid-list>

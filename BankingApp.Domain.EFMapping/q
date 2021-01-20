@@ -1,0 +1,30 @@
+using Microsoft.EntityFrameworkCore;
+using BankingApp.Domain.Entities;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection;
+
+namespace BankingApp.Domain.EFMapping {
+
+    public class BankContext: DbContext {
+        public BankContext(DbContextOptions<BankContext> options): base(options) { }
+
+        public DbSet<BankAccount> Accounts { get; set; }
+        public DbSet<BankAccountStatus> AccountStatuses { get; set;}
+        public DbSet<BankAccountType> AccountTypes { get; set;}
+        public DbSet<Customer> Customers { get; set;}
+        public DbSet<Loan> Loans { get; set;}
+        public DbSet<LoanOfficer> LoanOfficers { get; set;}
+        public DbSet<LoanRequest> LoanRequests { get; set;}
+        public DbSet<LoanRequestStatus> LoanRequestStatuses { get; set;}
+        public DbSet<LoanType> LoanTypes { get; set;}
+        public DbSet<Transaction> Transactions { get; set;}
+
+
+        // protected override void OnConfiguring(DbContextOptionsBuilder options);
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+    }
+}

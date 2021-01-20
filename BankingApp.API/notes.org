@@ -1,0 +1,57 @@
+Project requirements:
+    1. ASP.NET Core Web API
+    2. Angular 8+
+    3. Material Design
+    4. Jwt authentication or Google (or both)
+    5. Entity Framework Core
+    6. ASP.NET Identity
+    7. 3 CRUDs
+    8. Paginating, sorting, filtering of grid
+    9. 6-7 tables (identity columns are not taken into account)
+    10 Model validation on client side and server side.
+    11. Изюминка
+    
+// CREDIT SCORE
+
+    Credit Utilization (30%). While this may sound complicated, your credit utilization is simply the percentage of your total available credit that you are currently using. This number is expressed as a percentage and, to keep the best score, you’ll want to keep your number below 30%.
+
+    Credit Age (15%). The age or length of your credit history also contributes to your score. To make the most of this factor, make sure to keep your oldest accounts open and in good standing.
+
+    Credit Mix (10%). Potential lenders like to see a mix of different credit types on your report, such as credit card accounts and an auto or mortgage loan.
+
+    Number of Inquiries (10%). While checking your credit score won’t hurt your account, hard inquiries, such as when you apply for a new credit card, will. Limit the number of hard inquiries on your credit to keep your score high.
+
+
+// GENERATE ACC NUMBER
+
+Usually it consists of the following
+
+branch code assigned to the bank branch by HQ,
+
+product type eg 301 for chequeing accounts, 101 for savings accounts
+
+Account number which is the special identifier of a person's specific account
+
+Some RNG number put behind so nosy people wont be able to get another account by just looking at the sequence.
+
+Based on this, a chequeing account of product type 3xx opened at 6xx branch would look like this.
+
+6xx-3xx-1234-RNG
+
+Of course, different banks will have their own way of numbering accounts. It's usually a combination of those things mentioned.
+
+{
+    "firstName": "Jon",
+    "lastName": "Snow",
+    "cnp": "4204204204204",
+    "email": "vanea@zapada.com",
+    "password": "Drag0ns",
+    "city": "Los Santos",
+    "address": "Grove St.",
+    "zipcode": "4204"
+}
+
+{
+    "email": "vanea@zapada.com",
+    "password": "Drag0ns"
+}

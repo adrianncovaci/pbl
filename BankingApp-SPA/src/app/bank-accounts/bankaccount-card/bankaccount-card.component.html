@@ -1,0 +1,13 @@
+<mat-card class="bankAccount">
+    <mat-card-header>
+        <mat-card-title>
+            {{ account.balance }}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p> {{ account.accountNumber }}</p>
+        <p> {{ account.interestRate }} </p>
+        <p> {{ account.dateCreated | date }} </p>
+        <p> {{ account.bankAccountStatus }} </p>
+    </mat-card-content>
+</mat-card>

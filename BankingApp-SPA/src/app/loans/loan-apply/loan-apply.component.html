@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="list-container">
+    <div class="list" matSort>
+      <mat-card
+        class="loan-card"
+        *ngFor="let val of loanTypes?.data; let i = index"
+      >
+        <mat-card-header>
+          {{ val.type }}
+        </mat-card-header>
+        <mat-card-content>
+          <p>Interest Rate: {{ val.interestRate }}</p>
+          <p>Period: {{ val.period }} months</p>
+          <p *ngIf="val.fixedRate">Fixed Rate</p>
+          <button *ngIf="!message[i]" mat-button (click)="toggleMessage(i)">
+            Apply
+          </button>
+          <form
+            [formGroup]="applyForm"
+            *ngIf="message[i]"
+            #formdir="ngForm"
+            (ngSubmit)="apply()"
+          >
+            <div *ngIf="!formdir.submitted">
+              <mat-form-field>
+                <textarea
+                  formControlName="comments"
+                  matInput
+                  placeholder="Message"
+                  cdkTextareaAutosize
+                >
+                </textarea>
+                <mat-error
+                  *ngIf="
+                    formValue.comments.invalid && formValue.comments.touched
+                  "
+                >
+                  This section is required.
+                </mat-error>
+              </mat-form-field>
+              <button mat-button type="submit" [disabled]="!formdir.valid">
+                Submit
+              </button>
+            </div>
+            <div *ngIf="formdir.submitted">
+              Successfully Submitted
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+      <mat-paginator
+        [length]="loanTypes?.total"
+        [pageSizeOptions]="[10, 15]"
+        pageSize="10"
+      ></mat-paginator>
+    </div>
+  </div>
+  <div class="sidenav">
+    <mat-sidenav-container class="sidenav">
+      <mat-sidenav-content>
+        <h3>Filter:</h3>
+        <mat-list>
+          <mat-list-item>
+            <mat-checkbox
+              [(ngModel)]="filterForms.auto"
+              (change)="applyFilters()"
+            >
+              Auto Loans
+            </mat-checkbox>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-checkbox
+              [(ngModel)]="filterForms.mortgage"
+              (change)="applyFilters()"
+            >
+              Mortages
+            </mat-checkbox>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-checkbox
+              [(ngModel)]="filterForms.student"
+              (change)="applyFilters()"
+            >
+              Student Loans
+            </mat-checkbox>
+          </mat-list-item>
+        </mat-list>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

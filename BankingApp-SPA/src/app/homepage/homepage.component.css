@@ -1,0 +1,79 @@
+.main_card {
+  margin: 0 auto;
+}
+.header_image {
+  width: 85%;
+  height: 840px;
+  margin: 0 auto;
+  display: block;
+}
+
+.map {
+  margin: 0 auto;
+  display: block;
+  width: 85%;
+}
+
+mat-card-content {
+  margin: 0 auto;
+}
+
+.parallax {
+  width: 100%;
+}
+.parallax img {
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  background-position: center;
+}
+
+.parallax-container {
+  min-height: 550px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  overflow: hidden;
+  height: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text-block {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  bottom: 40%;
+  right: 30%;
+  padding: 20px;
+  font-size: larger;
+  width: 40%;
+  height: 10%;
+}
+
+.content {
+  margin: 0 auto;
+  bottom: 50%;
+  text-align: center;
+  opacity: 100%;
+}
+
+h1 {
+  font-size: 50px;
+  color: antiquewhite;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+#index-banner {
+  width: 85%;
+}
+
+header {
+  display: block;
+}
